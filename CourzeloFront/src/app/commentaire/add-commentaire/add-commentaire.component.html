@@ -1,0 +1,298 @@
+
+	<body>
+
+		<!-- Main Wrapper -->
+		<div class="main-wrapper">
+		
+			
+		
+			
+	
+			
+			<!-- Course Content -->
+			<section class="page-content course-sec">
+				<div class="container">
+				
+					<div class="row">
+						<div class="col-lg-8">
+						
+							
+							
+							
+							<!-- Reviews -->
+							<div class="card review-sec">
+								<div class="card-body">
+									<h5 class="subs-title">Reviews</h5>
+									<div class="instructor-wrap">
+										<div class="about-instructor">
+											<div class="abt-instructor-img">
+												<a href="instructor-profile.html"><img src="assets/img/user/user1.jpg" alt="img" class="img-fluid"></a>
+											</div>
+											<div class="instructor-detail">
+												<h5><a href="instructor-profile.html">Nicole Brown</a></h5>
+												<p>UX/UI Designer</p>
+											</div>
+										</div>
+										<div class="rating">							
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star filled"></i>
+											<i class="fas fa-star"></i>
+											<span class="d-inline-block average-rating">4.5 Instructor Rating</span>
+										</div>
+									</div>
+									<p class="rev-info">“ This is the second Photoshop course I have completed with Cristian. Worth every penny and recommend it highly. To get the most out of this course, its best to to take the Beginner to Advanced course first. The sound and video quality is of a good standard. Thank you Cristian. “</p>
+									<a href="javascript:void(0);" class="btn btn-reply"><i class="feather-corner-up-left"></i> Reply</a>
+								</div>
+							</div>
+							<!-- /Reviews -->
+							
+							<!-- Comment -->
+							<div class="add-commentaire-form">
+								<div class="card-body">
+									<h5 class="subs-title">Post A comment</h5>
+									<form [formGroup]="addCommentaireForm" (ngSubmit)="onSubmit()" >
+										<div class="row">
+											<div class="col-md-6" >
+												<div class="input-block">
+													<input type="text" class="form-control" placeholder="Full Name"  formControlName="fullname" id="fullname" >
+													<div *ngIf="addCommentaireForm.get('fullname')?.errors?.['required'] && addCommentaireForm.get('fullname')?.touched" class="text-danger">Full Name is required.</div>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="input-block">
+													<input type="email"   class="form-control" placeholder="Email" formControlName="email" id="email">
+													<div *ngIf="addCommentaireForm.get('email')?.errors?.['required'] && addCommentaireForm.get('email')?.touched" class="text-danger">Email is required.</div>
+													<div *ngIf="addCommentaireForm.get('email')?.errors?.['email'] && addCommentaireForm.get('email')?.touched" class="text-danger">Invalid email address.</div>
+												</div>
+											</div>
+										</div>
+										<div class="input-block">
+											<input type="email"  class="form-control" placeholder="Subject"  formControlName="subject" id="subject">
+											<div *ngIf="addCommentaireForm.get('subject')?.errors?.['required'] && addCommentaireForm.get('subject')?.touched" class="text-danger">Subject is required.</div>
+										</div>
+										<div class="input-block">
+											<textarea rows="4"  class="form-control" placeholder="Your Comments" formControlName="corp" id="corp"></textarea>
+											<div *ngIf="addCommentaireForm.get('corp')?.errors?.['required'] && addCommentaireForm.get('corp')?.touched" class="text-danger">Comments is required.</div>
+										</div>
+										<div class="submit-section">
+											<button class="btn submit-btn" type="submit" (click)="sendEmail()">Submit</button>
+										</div>
+									</form>
+								</div>
+							</div>
+							<!-- /Comment -->
+							
+						</div>	
+						
+						<div class="col-lg-4">
+							<div class="sidebar-sec">
+							
+								<!-- Video -->
+								<div class="video-sec vid-bg">
+									<div class="card">
+										<div class="card-body">
+											<a href="https://www.youtube.com/embed/1trvO6dqQUI" class="video-thumbnail" data-fancybox="">
+												<div class="play-icon">
+													<i class="fa-solid fa-play"></i>
+												</div>
+												<img class="" src="assets/img/video.jpg" alt="">
+											</a>
+											<div class="video-details">
+												<div class="course-fee">
+												<h2>FREE</h2>
+												<p><span>$99.00</span> 50% off</p>
+												</div>
+												<div class="row gx-2">
+													<div class="col-md-6">
+														<a href="course-wishlist.html" class="btn btn-wish w-100"><i class="feather-heart"></i> Add to Wishlist</a>
+													</div>
+													<div class="col-md-6">
+														<a href="javascript:void(0);" class="btn btn-wish w-100"><i class="feather-share-2"></i> Share</a>
+													</div>
+												</div>
+												<a href="checkout.html" class="btn btn-enroll w-100">Enroll Now</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- /Video -->
+								
+								<!-- Include -->
+								<div class="card include-sec">
+									<div class="card-body">
+										<div class="cat-title">
+											<h4>Includes</h4>
+										</div>
+										<ul>
+											<li><img src="assets/img/icon/import.svg" class="me-2" alt=""> 11 hours on-demand video</li>
+											<li><img src="assets/img/icon/play.svg" class="me-2" alt=""> 69 downloadable resources</li>
+											<li><img src="assets/img/icon/key.svg" class="me-2" alt=""> Full lifetime access</li>
+											<li><img src="assets/img/icon/mobile.svg" class="me-2" alt=""> Access on mobile and TV</li>
+											<li><img src="assets/img/icon/cloud.svg" class="me-2" alt=""> Assignments</li>
+											<li><img src="assets/img/icon/teacher.svg" class="me-2" alt=""> Certificate of Completion</li>
+										</ul>
+									</div>
+								</div>
+								<!-- /Include -->
+								
+								<!-- Features -->
+								<div class="card feature-sec">
+									<div class="card-body">
+										<div class="cat-title">
+											<h4>Includes</h4>
+										</div>
+										<ul>
+											<li><img src="assets/img/icon/users.svg" class="me-2" alt=""> Enrolled: <span>32 students</span></li>
+											<li><img src="assets/img/icon/timer.svg" class="me-2" alt=""> Duration: <span>20 hours</span></li>
+											<li><img src="assets/img/icon/chapter.svg" class="me-2" alt=""> Chapters: <span>15</span></li>
+											<li><img src="assets/img/icon/video.svg" class="me-2" alt=""> Video:<span> 12 hours</span></li>
+											<li><img src="assets/img/icon/chart.svg" class="me-2" alt=""> Level: <span>Beginner</span></li>
+										</ul>
+									</div>
+								</div>
+								<!-- /Features -->
+								
+							</div>
+						</div>
+					</div>	
+				</div>
+			</section>
+			<!-- /Pricing Plan -->
+			
+			<!-- Footer -->
+			<footer class="footer">
+				
+				<!-- Footer Top -->
+				<div class="footer-top">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-4 col-md-6">
+							
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-about">
+									<div class="footer-logo">
+										<img src="assets/img/logo.svg" alt="logo">
+									</div>
+									<div class="footer-about-content">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat mauris Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat mauris</p>
+									</div>
+								</div>
+								<!-- /Footer Widget -->
+								
+							</div>
+							
+							<div class="col-lg-2 col-md-6">
+							
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-menu">
+									<h2 class="footer-title">For Instructor</h2>
+									<ul>
+										<li><a href="instructor-profile.html">Profile</a></li>
+										<li><a href="login.html">Login</a></li>
+										<li><a href="register.html">Register</a></li>
+										<li><a href="instructor-list.html">Instructor</a></li>
+										<li><a href="deposit-instructor-dashboard.html"> Dashboard</a></li>
+									</ul>
+								</div>
+								<!-- /Footer Widget -->
+								
+							</div>
+							
+							<div class="col-lg-2 col-md-6">
+							
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-menu">
+									<h2 class="footer-title">For Student</h2>
+									<ul>
+										<li><a href="student-profile.html">Profile</a></li>
+										<li><a href="login.html">Login</a></li>
+										<li><a href="register.html">Register</a></li>
+										<li><a href="students-list.html">Student</a></li>
+										<li><a href="deposit-student-dashboard.html"> Dashboard</a></li>
+									</ul>
+								</div>
+								<!-- /Footer Widget -->
+								
+							</div>
+							
+							<div class="col-lg-4 col-md-6">
+							
+								<!-- Footer Widget -->
+								<div class="footer-widget footer-contact">
+									<h2 class="footer-title">News letter</h2>
+									<div class="news-letter">
+										<form>
+											<input type="text" class="form-control" placeholder="Enter your email address" name="email">
+										</form>
+									</div>
+									<div class="footer-contact-info">
+										<div class="footer-address">
+											<img src="assets/img/icon/icon-20.svg" alt="" class="img-fluid">
+											<p> 3556  Beech Street, San Francisco,<br> California, CA 94108 </p>
+										</div>
+										<p>
+											<img src="assets/img/icon/icon-19.svg" alt="" class="img-fluid">
+											<a href="https://dreamslms.dreamstechnologies.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f4908691959987989987b4918c9599849891da979b99">[email&#160;protected]</a>
+										</p>
+										<p class="mb-0">
+											<img src="assets/img/icon/icon-21.svg" alt="" class="img-fluid">
+											+19 123-456-7890
+										</p>
+									</div>
+								</div>
+								<!-- /Footer Widget -->
+								
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				<!-- /Footer Top -->
+				
+				<!-- Footer Bottom -->
+                <div class="footer-bottom">
+					<div class="container">
+					
+						<!-- Copyright -->
+						<div class="copyright">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="privacy-policy">
+										<ul>
+											<li><a href="term-condition.html">Terms</a></li>
+											<li><a href="privacy-policy.html">Privacy</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="copyright-text">
+										<p class="mb-0">&copy; 2023 DreamsLMS. All rights reserved.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /Copyright -->
+						
+					</div>
+				</div>
+				<!-- /Footer Bottom -->
+				
+			</footer>
+			<!-- /Footer -->
+		   
+		</div>
+	   <!-- /Main Wrapper -->
+	  
+		<!-- jQuery -->
+		<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.7.1.min.js"></script>
+		
+		<!-- Bootstrap Core JS -->
+		<script src="assets/js/bootstrap.bundle.min.js"></script>
+		
+		<!-- Custom JS -->
+		<script src="assets/js/script.js"></script>
+		
+	</body>
+

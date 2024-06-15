@@ -1,0 +1,11 @@
+.custom-image {
+    max-width: 100%; /* S'assure que l'image ne dépasse pas la largeur du conteneur parent */
+    height: auto; /* Garde le ratio de l'image */
+    border-radius: 8px; /* Ajoute une bordure arrondie */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajoute une légère ombre */
+}
+
+.small-text {
+    font-size: 3px; /* Définir la taille de police souhaitée */
+}
+

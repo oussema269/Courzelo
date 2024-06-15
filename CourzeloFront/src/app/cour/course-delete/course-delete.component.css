@@ -1,0 +1,10 @@
+.cadre-texte {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 150px; /* Hauteur fixe */
+  }
+  

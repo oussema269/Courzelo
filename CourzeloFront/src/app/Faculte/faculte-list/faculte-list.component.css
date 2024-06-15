@@ -1,0 +1,40 @@
+/* Style de base pour les boutons */
+.btn {
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    border-radius: 5px; /* Ajoute des coins arrondis */
+}
+
+/* Style pour le bouton Delete */
+.delete-btn {
+    background-color: #9e1209; /* Rouge */
+    color: white;
+}
+
+/* Changement de couleur au survol pour Delete */
+.delete-btn:hover {
+    background-color: #dc3124; /* Rouge plus foncé */
+}
+
+/* Style pour le bouton Update */
+.update-btn {
+    background-color: #075a09; /* Vert */
+    color: white;
+}
+
+/* Changement de couleur au survol pour Update */
+.update-btn:hover {
+    background-color: #388E3C; /* Vert plus foncé */
+}
+/* Alignement des boutons côte à côte */
+.button-group {
+    display: flex;
+    align-items: center;
+    /* Alignement des boutons côte à côte */
+  gap: 20px;
+
+}
+

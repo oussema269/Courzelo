@@ -1,0 +1,296 @@
+<!DOCTYPE html> 
+<html lang="en">
+	
+<!-- Mirrored from dreamslms.dreamstechnologies.com/html/instructor-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 03 Feb 2024 21:44:33 GMT -->
+<head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+		<title>Dreams LMS</title>
+		
+		
+	
+	</head>
+	<body>
+
+		<!-- Main Wrapper -->
+		<div class="main-wrapper">
+		
+			
+			
+			<!-- Page Wrapper -->
+			<div class="page-content instructor-page-content">
+				<div class="container">
+					<div class="row">
+						
+						<!-- Sidebar -->
+						<div class="col-xl-3 col-lg-4 col-md-12 theiaStickySidebar">
+							<div class="settings-widget dash-profile">
+								<div class="settings-menu p-0">
+									<div class="profile-bg">
+										<h5>Beginner</h5>
+										<img src="assets/img/instructor-profile-bg.jpg" alt="">
+										<div class="profile-img">
+											<a href="instructor-profile.html"><img src="assets/img/user/user15.jpg" alt=""></a>
+										</div>
+									</div>
+									<div class="profile-group">
+										<div class="profile-name text-center">
+											<h4><a href="instructor-profile.html">User</a></h4>
+											<p>Instructor</p>
+										</div>
+										<div class="go-dashboard text-center">
+											<a  routerLink="add-course" class="btn btn-primary">Create New Course</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="settings-widget account-settings">
+								<div class="settings-menu">
+									<h3>DASHBOARD</h3>
+									<ul>
+										<li class="nav-item active">
+											<a href="instructor-dashboard.html" class="nav-link">
+												<i class="feather-home"></i> My Dashboard
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="instructor-course.html" class="nav-link">
+												<i class="feather-book"></i> My Courses
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="instructor-reviews.html" class="nav-link">
+												<i class="feather-star"></i> Reviews
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="instructor-earnings.html" class="nav-link">
+												<i class="feather-pie-chart"></i> Earnings
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="instructor-orders.html" class="nav-link">
+												<i class="feather-shopping-bag"></i> Orders
+											</a>
+
+										</li>
+                                        
+										<li class="nav-item">
+											<a href="instructor-student-grid.html" class="nav-link">
+												<i class="feather-users"></i> Students
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="instructor-payouts.html" class="nav-link">
+												<i class="feather-dollar-sign"></i> Payouts
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="instructor-tickets.html" class="nav-link">
+												<i class="feather-server"></i> Support Tickets
+											</a>
+										</li>
+									</ul>
+									<div class="instructor-title">
+										<h3>ACCOUNT SETTINGS</h3>
+									</div>
+									<ul>
+										<li class="nav-item">
+											<a href="instructor-edit-profile.html" class="nav-link ">
+												<i class="feather-settings"></i> Edit Profile
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="instructor-security.html" class="nav-link">
+												<i class="feather-user"></i> Security
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="instructor-social-profiles.html" class="nav-link">
+												<i class="feather-refresh-cw"></i> Social Profiles
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="instructor-notification.html" class="nav-link">
+												<i class="feather-bell"></i> Notifications
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="instructor-profile-privacy.html" class="nav-link">
+												<i class="feather-lock"></i> Profile Privacy
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="instructor-delete-profile.html" class="nav-link">
+												<i class="feather-trash-2"></i> Delete Profile
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="instructor-linked-account.html" class="nav-link">
+												<i class="feather-user"></i> Linked Accounts
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="index-2.html" class="nav-link">
+												<i class="feather-power"></i> Sign Out
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>					
+						</div>
+						<!-- /Sidebar -->
+                        
+						<!-- Instructor Dashboard -->
+						<div class="col-xl-9 col-lg-8 col-md-12">	
+							<div class="row">
+								<div class="col-md-4 d-flex">
+									<div class="card instructor-card w-100">
+										<div class="card-body">
+											<div class="instructor-inner">
+												<h6>REVENUE</h6>
+												<h4 class="instructor-text-success">$467.34</h4>
+												<p>Earning this month</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 d-flex">
+									<div class="card instructor-card w-100">
+										<div class="card-body">
+											<div class="instructor-inner">
+												<h6>STUDENTS ENROLLMENTS</h6>
+												<h4 class="instructor-text-info">12,000</h4>
+												<p>New this month</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 d-flex">
+									<div class="card instructor-card w-100">
+										<div class="card-body">
+											<div class="instructor-inner">
+                                                <input type="text" [(ngModel)]="search" (input)="rechercheMultiCritere()" class="search-box-four" placeholder="Search">
+												
+											</div>
+											
+										</div>
+										<div class="input-block select-form mb-0">
+											<span class="notification-title" >Niveau
+											<select class="notification-title"[(ngModel)]="selectedNiveau"   (click)="filterByNiveau()" name="niveau">
+												<option value="PREMIERE">PREMIERE</option>
+												<option value="DEUXIEME">DEUXIEME</option>
+												<option value="TROISIEME">TROISIEME</option>
+												<option value="QUATRIEME">QUATRIEME</option>
+												<option value="CINQUIEME">CINQUIEME</option>
+											</select>
+											</span>
+										</div>
+									</div>
+									
+								</div>
+
+							</div>
+							
+							<div class="row">
+								<div class="col-md-12">
+									<div class="card instructor-card">
+										<div class="card-header">
+											<h4>Earnings</h4>
+										</div>
+										<div class="card-body">
+											<div id="instructor_chart"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="card instructor-card">
+										<div class="card-header">
+										  <input type="button" value="trier"   class="btn btn-action-method" (click)="trier()">
+                                        </div>
+										<div class="card-body">
+											<div id="order_chart"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="settings-widget">
+										<div class="settings-inner-blk p-0">
+											<div class="sell-course-head comman-space">
+												<h3>Best Selling Courses</h3>
+											</div>
+                                            
+											<div class="comman-space pb-0">
+												<div class="settings-tickets-blk course-instruct-blk table-responsive">
+
+
+													<!-- Referred Users-->
+                                                    <div *ngFor=" let c of course">
+                                                        <div *ngIf="c.nomCour==search ||c.description==search || search==''">
+													<table class="table table-nowrap mb-0">
+												     <tbody>
+                                                            <tr>
+																<div class="sell-table-group d-flex align-items-center"></div>
+																	
+																	<div class="sell-table-group d-flex align-items-center">
+																		<div class="sell-group-img">
+																				<img *ngIf="c.photo" width="100" height="500"
+                                     		   								[src]="getphoto(c.photo)"
+                                       									 alt="Blog Photo" class="img-fluid "> 
+																			
+																		</div>
+																		<div class="sell-tabel-info">
+																			<p class="name-field"> {{c.nomCour}}
+																				<br/>
+																				{{c.prix}}$
+																			</p>
+																			
+																		</div>
+																		
+																		
+																	</div>
+																
+																	<td > 
+																		<i class="btn btn-primary btn-sm far fa-trash-can" style="font-size: 24px;" type="button" (click)="delete(c.idCour)"></i>
+																		<td><a [routerLink]="'/course-update/' + c.idCour" class="btn btn-primary btn-sm" (click)="modifier(c.idCour)"><i class="far fa-edit"></i> </a></td>
+																		<td><a [routerLink]="'/add-ressource/' + c.idCour" class="btn btn-primary btn-sm" (click)="modifier(c.idCour)"><i class="far fa-plus-square"></i> </a></td>
+																		<td><a [routerLink]="'/ressource-materials/' + c.idCour" class="btn btn-primary btn-sm" (click)="modifier(c.idCour)"><i class="far fa-list-alt"></i> </a></td>
+
+																	
+																
+                                                                
+															</tr>  
+                                                        </tbody>
+                                                     </table>
+                                                     </div>
+                                                      </div>
+													<!-- /Referred Users-->	
+                                               </div>									
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>	
+						<!-- /Instructor Dashboard -->
+						
+					</div>
+				</div>
+			</div>	
+        </div>
+		
+       
+    
+    
+    
+
+
+    
+    </body> 
+<!-- Mirrored from dreamslms.dreamstechnologies.com/html/instructor-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 03 Feb 2024 21:44:38 GMT -->
+</html>

@@ -1,0 +1,63 @@
+<body>
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        <!-- Dashboard Quiz -->
+        <div class="page-content">
+            <div class="container">
+                <div class="row">
+                    <!-- Quiz Details -->
+                    <div class="col-xl-12 col-md-12">
+                        <div class="settings-widget">
+                            <div class="settings-inner-blk p-0">
+                                <div class="comman-space pb-0">
+                                    <div class="filter-grp ticket-grp d-flex align-items-center justify-content-between">
+                                        <div>
+                                            <h3>Quiz List</h3>
+                                        </div>
+                                    </div>
+                                    <div class="settings-tickets-blk table-responsive">
+                                        <!-- Quiz Table -->
+                                       <!-- Quiz Table -->
+<table class="table table-nowrap mb-0">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Duration (Minutes)</th>
+            <th>Questions</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let quiz of quizzes">
+        <tr>
+          <td>{{ quiz.id }}</td>
+          <td>{{ quiz.title }}</td>
+          <td>{{ quiz.duree }}</td>
+          <td>
+            <select *ngIf="quiz.questions?.length > 0; else noQuestions">
+              <option *ngFor="let question of quiz.questions" [value]="question?.id">{{ question?.question_title }}</option>
+            </select>
+            <ng-template #noQuestions>No Questions</ng-template>
+          </td>
+        </tr>
+      </tbody>
+      
+</table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Quiz Details -->
+                </div>
+            </div>
+        </div>
+        <!-- /Dashboard Quiz -->
+    </div>
+    <!-- /Main Wrapper -->
+
+    <!-- Required Scripts -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>

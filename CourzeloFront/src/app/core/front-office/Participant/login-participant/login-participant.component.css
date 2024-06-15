@@ -1,0 +1,4 @@
+.button-container {
+    margin-right: 10px; /* Ajoute un espace entre les boutons */
+    display: inline-block; /* Permet aux containers d'être alignés côte à côte */
+}

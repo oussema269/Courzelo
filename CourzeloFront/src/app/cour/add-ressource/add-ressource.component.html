@@ -1,0 +1,74 @@
+<div class="col-xl-9 col-lg-8 col-md-12">
+    <div class="add-course-inner-header">
+        <h4>Basic Information</h4>
+    </div>
+    <div class="card settings-inner-blk p-0">
+        <div class="widget-set sell-course-head comman-space">
+            <!-- ... Remaining HTML content ... -->
+            <div class="widget-content multistep-form">
+                <div class="widget-content multistep-form">
+                    <form class="field-card">
+                        <div class="add-course-info">
+                            <div class="add-course-inner-header">
+                                <h4>Courses Media</h4>
+                            </div>
+                            <div class="add-course-form">
+                                <form action="#">
+
+                                    <div class="input-block">
+                                        <label class="add-course-label">cour image</label>
+                                        <div class="relative-form">
+
+                                            <div *ngIf="selectedFile">
+                                                <span>{{selectedFile.name}}</span>
+                                            </div>
+                                            <label class="relative-file-upload">
+                                                Upload File <input type="file"
+                                                    (change)="onFileSelected($event)">
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                            
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="widget-content multistep-form">
+            <fieldset id="first">
+                <div class="add-course-info">
+                    
+                    <div class="add-course-form">
+                        <form #f="ngForm" (ngSubmit)="save(f)">
+                            <div class="input-block">
+                                <label class="add-course-label">Ressource Title</label>
+                                <input type="text" class="form-control" placeholder="Ressource Title" required ngModel #l="ngModel" [(ngModel)]="ressource.nomRessource" name="aa">
+                                <div class="alert alert-danger" *ngIf="l.invalid">
+                                    the nomCour is a required field !
+                                
+                                </div>
+
+                            </div>
+                            
+                           
+                            
+                            <button [disabled]="f.invalid" class="btn btn-success-dark" type="submit" (click)="affecterRessourceAcour()">modifier</button>
+                        </form>
+                        <div class="widget-btn">
+
+                            <a (click)="onUploadCourse()"
+                                class="btn btn-info-light next_btn">upload </a>
+                        </div>
+                    </div>
+                    <div class="widget-btn">
+                        <a class="btn btn-black">Back</a>
+                        <a class="btn btn-info-light next_btn">Ajouter Ressource</a>
+                    </div>
+                </div>
+            </fieldset>
+    </div>
+    

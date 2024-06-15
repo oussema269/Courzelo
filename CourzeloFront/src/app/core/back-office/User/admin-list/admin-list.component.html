@@ -1,0 +1,352 @@
+
+<body>
+
+	<!-- Main Wrapper -->
+	<div class="main-wrapper">
+	
+		<app-navbar></app-navbar>
+		<p-dialog [(visible)]=" updateProfileDialog" [style]="{width: '500px','background-color': '#f0f0f0'}"
+		header="Modifier admin" [modal]="true" class="p-fluid">
+		<ng-template pTemplate="content">
+			<form [formGroup]="profileForm">
+				<div class="forms ">
+
+					<label for="firstName">Instructer Name </label>
+					<div class="field">
+
+						<span class="login-input-wrapper">
+							<input type="text" formControlName="firstName" required [(ngModel)]="profile!.firstName"
+								pInputText placeholder="Entrer votre nom..."
+								[ngClass]="!profileForm.controls['firstName'].valid && profileForm.controls['firstName']?.touched?'ng-invalid ng-dirty':''" />
+						</span>
+						<small class="text-red-500"
+							*ngIf="!profileForm.controls['firstName'].valid && profileForm.controls['firstName']?.touched "
+							style="color: #f44336;">
+							{{ profileForm.get("firstName").hasError("required")? "Ce champ est obligatoire ": ""}}
+							{{ profileForm.get("firstName").hasError("minlength")? "Veuillez entrer un nom valide!
+							": ""}}
+
+						</small>
+					</div>
+					<label for="lastName">Prénom de l'enseignant</label>
+					<div class="field">
+						<span class="login-input-wrapper">
+
+							<input type="text" formControlName="lastName" required [(ngModel)]="profile.lastName"
+								pInputText placeholder="Entrer votre prénom..."
+								[ngClass]="!profileForm.controls['lastName'].valid && profileForm.controls['lastName']?.touched?'ng-invalid ng-dirty':''" />
+						</span>
+						<small class="text-red-500"
+							*ngIf="!profileForm.controls['lastName'].valid && profileForm.controls['lastName']?.touched "
+							style="color: #f44336;">
+							{{ profileForm.get("lastName").hasError("required")? "Ce champ est obligatoire ": ""}}
+							{{ profileForm.get("lastName").hasError("minlength")? "Veuillez entrer un prénom valide!
+							": ""}}
+
+						</small>
+					</div>
+					<label for="adresse">Adresse</label>
+					<div class="field">
+						<span class="login-input-wrapper">
+							<input type="text" formControlName="address" required [(ngModel)]="profile.address"
+								pInputText placeholder="Entrer votre prénom..."
+								[ngClass]="!profileForm.controls['address'].valid && profileForm.controls['address']?.touched?'ng-invalid ng-dirty':''" />
+						</span>
+						<small class="text-red-500"
+							*ngIf="!profileForm.controls['address'].valid && profileForm.controls['address']?.touched "
+							style="color: #f44336;">
+							{{ profileForm.get("address").hasError("required")? "Ce champ est obligatoire ": ""}}
+							{{ profileForm.get("address").hasError("minlength")? "Veuillez entrer une adresse
+							valide!
+							": ""}}
+						</small>
+					</div>
+
+					<label for="phone">Numéro de téléphone:</label>
+					<div class="field">
+						<span class="login-input-wrapper">
+
+							<input type="text" id="phone" formControlName="phone" required
+								[(ngModel)]="profile.phone" pInputText
+								placeholder="Entrer votre numéro de téléphone..."
+								[ngClass]="!profileForm.controls['phone'].valid && profileForm.controls['phone']?.touched?'ng-invalid ng-dirty':''" />
+						</span>
+						<small class="text-red-500"
+							*ngIf="!profileForm.controls['phone'].valid && profileForm.controls['phone']?.touched "
+							style="color: #f44336;">
+							{{ profileForm.get("phone").hasError("required")? "Ce champ est obligatoire
+							": ""}}
+							{{ profileForm.get("phone").hasError("pattern") ? "Veuillez entrer un numéro valide
+							": ""}}
+							{{ profileForm.get("phone").hasError("minlength") ? "Le numéro de téléphone doit
+							contenir 8
+							chiffres
+							": ""}}
+							{{ profileForm.get("phone").hasError("maxlength") ? "Le numéro de téléphone ne doit
+							dépasser 8
+							chiffres
+							": ""}}
+
+						</small>
+					</div>
+
+
+				</div>
+			</form>
+		</ng-template>
+
+		<ng-template pTemplate="footer">
+			<button type="button" class="btn btn-success" (click)="updateProfileDialog = false">cancel</button>
+			<button type="button" class="btn btn-warn" (click)="updateProfile()"
+				[disabled]="profileForm.invalid">Save</button>
+		</ng-template>
+	</p-dialog>        
+		<!-- Breadcrumb -->
+		<div class="breadcrumb-bar">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-12">
+						<div class="breadcrumb-list">
+							<nav aria-label="breadcrumb" class="page-breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+									<li class="breadcrumb-item">Pages</li>
+									<li class="breadcrumb-item">Students Grid</li>
+								</ol>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /Breadcrumb -->
+		
+		<!-- Page Wrapper -->
+		<div class="page-content">
+			
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+					
+
+					<!-- Filter -->
+					<div class="showing-list">
+						<div class="row">
+							<div class="col-lg-6">
+							</div>
+							<div class="col-lg-6">
+								<div class="show-filter add-course-info">
+									<form action="#">
+										<div class="row gx-2 align-items-center">
+											<div class="col-md-6 col-item">
+												<div class=" search-group">
+													<i class="feather-search"></i>
+													<input type="text" class="form-control"
+														placeholder="Search our courses"
+														[(ngModel)]="FormateurSearch" (input)="onSearch()"
+														[ngModelOptions]="{standalone: true}">
+												</div>
+											</div>
+
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+		
+						<div class="row" *ngFor=" let admin of filteredFormateur">
+							<div class="col-lg-3 col-md-6 d-flex" >
+
+								<div class="student-box flex-fill">
+
+									<div class="student-content pb-0">												
+										<h6>{{admin.email}}</h6>
+										<h6>Identifiant : {{admin.username}}</h6>
+									
+										<div class="loc-blk d-flex align-items-center justify-content-center">universityName
+											<img src="assets/img/students/loc-icon.svg" class="me-1" alt="">
+										
+										</div>
+										<button type="button" class="btn btn-success"
+											(click)="updateProfileDialog = true;getProfileByIdUser(admin.id)">Update</button>
+				
+									</div>
+								</div>
+								
+							</div>
+							
+							
+						</div>
+						
+						<!-- /pagination -->
+						<div class="row">
+							<div class="col-md-12">
+								<ul class="pagination lms-page">
+									<li class="page-item prev">
+										<a class="page-link" href="javascript:void(0);" tabindex="-1"><i class="fas fa-angle-left"></i></a>
+									</li>
+									<li class="page-item first-page active">
+										<a class="page-link" href="javascript:void(0);">1</a>
+									</li>
+									<li class="page-item">
+										<a class="page-link" href="javascript:void(0);">2</a>
+									</li>
+									<li class="page-item">
+										<a class="page-link" href="javascript:void(0);">3</a>
+									</li>
+									<li class="page-item">
+										<a class="page-link" href="javascript:void(0);">4</a>
+									</li>
+									<li class="page-item">
+										<a class="page-link" href="javascript:void(0);">5</a>
+									</li>
+									<li class="page-item next">
+										<a class="page-link" href="javascript:void(0);"><i class="fas fa-angle-right"></i></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!-- /pagination -->
+						
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<!-- /Page Wrapper -->
+		
+		<!-- Footer -->
+		<footer class="footer">
+			
+			<!-- Footer Top -->
+			<div class="footer-top">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+						
+							<!-- Footer Widget -->
+							<div class="footer-widget footer-about">
+								<div class="footer-logo">
+									<img src="assets/img/logo.svg" alt="logo">
+								</div>
+								<div class="footer-about-content">
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat mauris Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat mauris</p>
+								</div>
+							</div>
+							<!-- /Footer Widget -->
+							
+						</div>
+						
+						<div class="col-lg-2 col-md-6">
+						
+							<!-- Footer Widget -->
+							<div class="footer-widget footer-menu">
+								<h2 class="footer-title">For Instructor</h2>
+								<ul>
+									<li><a href="instructor-profile.html">Profile</a></li>
+									<li><a href="login.html">Login</a></li>
+									<li><a href="register.html">Register</a></li>
+									<li><a href="instructor-list.html">Instructor</a></li>
+									<li><a href="deposit-instructor-dashboard.html"> Dashboard</a></li>
+								</ul>
+							</div>
+							<!-- /Footer Widget -->
+							
+						</div>
+						
+						<div class="col-lg-2 col-md-6">
+						
+							<!-- Footer Widget -->
+							<div class="footer-widget footer-menu">
+								<h2 class="footer-title">For Student</h2>
+								<ul>
+									<li><a href="student-profile.html">Profile</a></li>
+									<li><a href="login.html">Login</a></li>
+									<li><a href="register.html">Register</a></li>
+									<li><a href="students-list.html">Student</a></li>
+									<li><a href="deposit-student-dashboard.html"> Dashboard</a></li>
+								</ul>
+							</div>
+							<!-- /Footer Widget -->
+							
+						</div>
+						
+						<div class="col-lg-4 col-md-6">
+						
+							<!-- Footer Widget -->
+							<div class="footer-widget footer-contact">
+								<h2 class="footer-title">News letter</h2>
+								<div class="news-letter">
+									<form>
+										<input type="text" class="form-control" placeholder="Enter your email address" name="email">
+									</form>
+								</div>
+								<div class="footer-contact-info">
+									<div class="footer-address">
+										<img src="assets/img/icon/icon-20.svg" alt="" class="img-fluid">
+										<p> 3556  Beech Street, San Francisco,<br> California, CA 94108 </p>
+									</div>
+									<p>
+										<img src="assets/img/icon/icon-19.svg" alt="" class="img-fluid">
+										<a href="https://dreamslms.dreamstechnologies.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d3b7a1b6b2bea0bfbea093b6abb2bea3bfb6fdb0bcbe">[email&#160;protected]</a>
+									</p>
+									<p class="mb-0">
+										<img src="assets/img/icon/icon-21.svg" alt="" class="img-fluid">
+										+19 123-456-7890
+									</p>
+								</div>
+							</div>
+							<!-- /Footer Widget -->
+							
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			<!-- /Footer Top -->
+			
+			<!-- Footer Bottom -->
+			<div class="footer-bottom">
+				<div class="container">
+				
+					<!-- Copyright -->
+					<div class="copyright">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="privacy-policy">
+									<ul>
+										<li><a href="term-condition.html">Terms</a></li>
+										<li><a href="privacy-policy.html">Privacy</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="copyright-text">
+									<p class="mb-0">&copy; 2023 DreamsLMS. All rights reserved.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Copyright -->
+					
+				</div>
+			</div>
+			<!-- /Footer Bottom -->
+			
+		</footer>
+		<!-- /Footer -->
+	   
+	</div>
+   <!-- /Main Wrapper -->
+  
+	<!-- jQuery -->
+	<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.7.1.min.js"></script>
+	
+	<!-- Bootstrap Core JS -->
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	
+	<!-- Custom JS -->
+	<script src="assets/js/script.js"></script>
+	
+</body>

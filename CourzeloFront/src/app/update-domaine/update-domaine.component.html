@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Modifier Domaine</h2>
+  <form (ngSubmit)="updateDomaine()" #updateDomaineForm="ngForm">
+    <div class="form-group">
+      <label for="nom">Nom:</label>
+      <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="domaine.nom" required maxlength="10">
+      <div *ngIf="updateDomaineForm.controls['nom'].invalid && (updateDomaineForm.controls['nom'].dirty || updateDomaineForm.controls['nom'].touched)" class="text-danger">
+        <div *ngIf="updateDomaineForm.controls['nom'].errors?.['required']">Le nom est obligatoire.</div>
+      <div *ngIf="updateDomaineForm.controls['nom'].errors?.['maxlength']&& updateDomaineForm.controls['nom']?.touched" class="text-danger">Domain Name should not exceed 10 characters.</div>
+
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea class="form-control" id="description" name="description" [(ngModel)]="domaine.description" required></textarea>
+      <div *ngIf="updateDomaineForm.controls['description'].invalid && (updateDomaineForm.controls['description'].dirty || updateDomaineForm.controls['description'].touched)" class="text-danger">
+        <div *ngIf="updateDomaineForm.controls['description'].errors?.['required']">La description est obligatoire.</div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success"[disabled]=updateDomaineForm.invalid>Update</button>
+    <button type="button" class="btn btn-primary" (click)="goBack()">Back</button>
+  </form>
+</div>

@@ -1,0 +1,179 @@
+<body>
+
+    <div class="main-wrapper">
+
+        <div class="page-content">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-xl-3 col-lg-4 col-md-12 theiaStickySidebar">
+                        <div class="settings-widget dash-profile">
+                            <div class="settings-menu p-0">
+                                <div class="profile-bg">
+                                    <h5>Admin</h5>
+                                    <img src="assets/img/instructor-profile-bg.jpg" alt>
+                                    <div class="profile-img">
+                                        <a href="instructor-profile.html"><img src="assets/img/user/user15.jpg" alt></a>
+                                    </div>
+                                </div>
+                                <div class="profile-group">
+                                    <div class="profile-name text-center">
+                                        <h4><a href="instructor-profile.html">Youssef Kchao</a></h4>
+                                        <p>Admin</p>
+                                    </div>
+                                    <div (click)="navigateToAddFaculte(poleId)" class="go-dashboard text-center">
+                                        <a  class="btn btn-primary">Create New University</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="settings-widget account-settings">
+                            <div class="settings-menu">
+                                <h3>DASHBOARD</h3>
+                                <ul>
+
+                                    <li class="nav-item active">
+                                        <a routerLink="/getAllPoles" class="nav-link">
+                                            <i routerLink="/getAllPoles" class="feather-book"></i> Poles list
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xl-9 col-lg-8 col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="settings-widget">
+                                    <div class="settings-inner-blk p-0">
+                                        <div class="sell-course-head comman-space">
+                                            <h3>My Universities  </h3>
+                                           
+                                           
+                                        </div>
+                                        <div class="comman-space pb-0">
+                                            <div class="instruct-search-blk">
+                                                <div class="show-filter choose-search-blk">
+                                                    <div class="row gx-2 align-items-center">
+                                                        <div class="col-md-6 col-item">
+                                                            <div class=" search-group">
+                                                                <i class="feather-search"></i>
+                                                                <input type="text" class="form-control"
+                                                                    [(ngModel)]="searchInput" placeholder="Search University"
+                                                                    (input)="onSearch()">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 col-lg-6 col-item">
+                                                            <div class="input-block select-form mb-0">
+                                                                <select class="form-select select" id="sortBy"
+                                                                    [(ngModel)]="sortBy" (change)="onSortChange()">
+                                                                    <option value="codeFaculte">Choose</option>
+                                                                    <option value="adresse">Adresse</option>
+                                                                    <option value="nom">Name</option>
+                                                                    <option value="description">Description </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="settings-tickets-blk course-instruct-blk table-responsive">
+
+                                                <table class="table table-nowrap mb-2">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Universities</th>
+                                                            <th>Actions</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let faculte of facultes; let i = index;">
+                                                            <td>
+                                                                <div class="sell-table-group d-flex align-items-center">
+                                                                    <div class="sell-group-img">
+                                                                            <div class="sell-group-img">
+
+                                                                                <img *ngIf="faculte.photoUrl"
+                                                                                    [src]="getFacultePhotoUrl(faculte)"
+                                                                                    alt="Faculte Photo" class="img-fluid ">
+        
+                                                                            </div>
+                                                                    </div>
+                                                                    <div class="sell-tabel-info">
+                                                                        <p><a href="course-details.html">
+                                                                                {{faculte.nom}}
+                                                                            </a>
+                                                                        </p>
+
+                                                                        <div
+                                                                            class="course-info d-flex align-items-center border-bottom-0 pb-0">
+                                                                            <div >
+                                                                                
+                                                                                <p>📍 {{faculte.adresse}}</p>
+
+
+                                                                            <div>
+    
+                                                                                <p> 📞 {{faculte.telephone}}</p>
+                                                                            </div>  
+                                                                        </div>    
+
+                                                                        <div
+                                                                            class="course-view d-flex align-items-center">
+                                                                             <p>📝 {{faculte.description}}</p>   
+                                                                        </div>     
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <!-- <td>
+                                                                <p><a href="course-details.html">
+                                                                        {{faculte.codeFaculte}}
+                                                                    </a>
+                                                                </p>
+                                                            </td> -->
+                                                            <div class="profile-share d-flex align-items-center justify-content-center">
+                                                                <a (click)="deleteFaculte(faculte)" class="btn btn-danger" style="border: 1px solid;margin-right: 9px;" >Delete</a>
+                                                                <a (click)="navigateToUpdate(faculte.codeFaculte)" class="btn btn-success" style="border: 1px solid;margin-left: 8px;">Update</a>
+                                                            </div>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="assets/js/jquery-3.7.1.min.js" type="dfcfb3dcda4aeddb1b95665d-text/javascript"></script>
+
+    <script src="assets/js/bootstrap.bundle.min.js" type="dfcfb3dcda4aeddb1b95665d-text/javascript"></script>
+
+    <script src="assets/plugins/select2/js/select2.min.js" type="dfcfb3dcda4aeddb1b95665d-text/javascript"></script>
+
+    <script src="assets/plugins/feather/feather.min.js" type="dfcfb3dcda4aeddb1b95665d-text/javascript"></script>
+
+    <script src="assets/plugins/theia-sticky-sidebar/ResizeSensor.js"
+        type="dfcfb3dcda4aeddb1b95665d-text/javascript"></script>
+    <script src="assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js"
+        type="dfcfb3dcda4aeddb1b95665d-text/javascript"></script>
+
+    <script src="assets/js/script.js" type="dfcfb3dcda4aeddb1b95665d-text/javascript"></script>
+    <script src="../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
+        data-cf-settings="dfcfb3dcda4aeddb1b95665d-|49" defer></script>
+</body>
+

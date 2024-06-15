@@ -1,0 +1,95 @@
+<body>
+
+    <div class="main-wrapper">
+
+
+
+        <section class="page-content course-sec">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="add-course-header">
+                            <h2>Add New Faculte</h2>
+                            <div class="add-course-btns">
+                                <ul class="nav">
+                                    <li>
+                                        <a routerLink="/getAllFacultes" href="dashboard-instructor.html" class="btn btn-black">Back to Universities</a>
+                                    </li>
+                                    <!-- <li>
+                                        <a href="javascript:void(0);" class="btn btn-success-dark">Save</a>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+
+                            <div class="widget-set">
+                               
+                                <div class="widget-content multistep-form">
+                                    <fieldset id="first">
+                                        <div class="add-course-info">
+                                            <div class="add-course-inner-header">
+                                                <h4>Basic Information</h4>
+                                            </div>
+                                            <div class="add-course-form">
+                                                <form [formGroup]="Facultesaveform" (submit)="saveFaculte()">
+                                                    <div class="input-block">
+                                                        <label class="add-course-label">Faculte Name</label>
+                                                        <input type="text" class="form-control" name="nom"
+                                                            placeholder="Faculte name" formControlName="nom">
+                                                            <div class="error" style="color: tomato;font-size:smaller;"  *ngIf="Facultesaveform.get('nom')?.touched &&  Facultesaveform.get('nom')?.errors?.['required']">required input
+                                                            </div>
+                                                    </div>
+                                                    <div class="input-block">
+                                                        <label class="add-course-label">Faculte Adress</label>
+                                                        <input type="text" class="form-control " name="adresse"
+                                                            placeholder="Faculte adresse" formControlName="adresse">
+                                                            <div class="error" style="color: tomato;font-size:smaller;"  *ngIf="Facultesaveform.get('adresse')?.touched &&  Facultesaveform.get('adresse')?.errors?.['required']">required input
+                                                            </div>
+                                                            
+                                                    </div>
+                                                    <div class="input-block">
+                                                        <label class="add-course-label">Faculte Description</label>
+                                                        <input type="text" class="form-control" name="description"
+                                                            placeholder="Faculte description" formControlName="description">
+                                                            <div class="error" style="color: tomato;font-size:smaller;"  *ngIf="Facultesaveform.get('description')?.touched &&  Facultesaveform.get('description')?.errors?.['required']">required input
+                                                            </div>
+                                                    </div>
+                                                    <div class="input-block">
+                                                        <label class="add-course-label">Faculte Phone</label>
+                                                        <input type="text" class="form-control" name="telephone"
+                                                            placeholder="Faculte phone" formControlName="telephone">
+                                                            <div class="error" style="color: tomato;font-size:smaller;"  *ngIf="Facultesaveform.get('telephone')?.touched &&  Facultesaveform.get('telephone')?.errors?.['required']">required input
+                                                            </div>
+                                                            <div class="error" style="color: tomato;font-size:smaller;"
+                                                            *ngIf="Facultesaveform.get('telephone')?.touched && Facultesaveform.get('telephone')?.hasError('minlength')">
+                                                            Phone number must be at least 8 characters.
+                                                            </div>
+                                                    </div>
+                                                    <li>
+                                                        <button type="submit" class="btn btn-success-dark">Save</button>
+                                                    </li>
+                                                </form>
+                                                 
+                                            </div>
+                                           
+                                        </div>
+                                    </fieldset>
+                                   
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+    </div>
+    </body>

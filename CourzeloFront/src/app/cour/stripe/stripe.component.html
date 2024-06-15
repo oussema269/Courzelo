@@ -1,0 +1,17 @@
+
+<div>      
+  <button style="width: 100px; height: 40px; padding: 10px;" (click)="pdfGenerator()" class="btn btn-primary btn-block">Facture</button>
+</div>
+    <div class="input-block">
+      <label class="add-course-label">email</label> 
+      <input name="prix" type="text" class="form-control" placeholder="email"  required [(ngModel)]="email"  ngModel #a="ngModel" >
+      <div class="alert alert-danger" *ngIf="a.invalid">
+          the Price is a required field !
+      
+      </div>
+      <div>
+        <button style="width: 100px; height: 40px; padding: 10px;" (click)="pay(amount)" class="btn btn-primary btn-block">Pay $ {{amount}}</button>
+
+      </div>
+
+  </div>

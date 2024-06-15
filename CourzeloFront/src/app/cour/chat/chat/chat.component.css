@@ -1,0 +1,7 @@
+@import 'ngx-toastr/toastr';
+
+@import 'ngx-toastr/toastr-bs4-alert';
+@import 'ngx-toastr/toastr-bs5-alert';
+.emoji-picker {
+    font-size: 0.8em; /* ajustez la taille selon vos préférences */
+}

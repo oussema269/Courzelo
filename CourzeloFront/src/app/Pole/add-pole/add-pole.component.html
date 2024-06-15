@@ -1,0 +1,86 @@
+<body>
+
+    <div class="main-wrapper">
+
+
+
+        <section class="page-content course-sec">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="add-course-header">
+                            <h2>Add New Pole</h2>
+                            <div class="add-pole-btns">
+                                <ul class="nav">
+                                    <li>
+                                        <a routerLink="/getAllPoles" href="dashboard-instructor.html" class="btn btn-black">Back to Poles</a>
+                                    </li>
+                                    <!-- <li>
+                                        <a href="javascript:void(0);" class="btn btn-success-dark">Save</a>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+
+                            <div class="widget-set">
+                               
+                                <div class="widget-content multistep-form">
+                                    <fieldset id="first">
+                                        <div class="add-pole-info">
+                                            <div class="add-pole-inner-header">
+                                                <h4>Basic Information</h4>
+                                            </div>
+                                            <div class="add-pole-form">
+                                                <form [formGroup]="Polesaveform" (submit)="savePole()">
+                                                    <div class="input-block">
+                                                        <label class="add-Pole-label">Pole Name</label>
+                                                        <input type="text" class="form-control" name="nom"
+                                                            placeholder="Pole Title" formControlName="nom">
+                                                            <div class="error" style="color: tomato;font-size:smaller;"  *ngIf="Polesaveform.get('nom')?.touched &&  Polesaveform.get('nom')?.errors?.['required']">required input
+                                                            </div>
+                                                    </div>
+                                                    <div class="input-block">
+                                                        <label class="add-Pole-label">Pole Adress</label>
+                                                        <input type="text" class="form-control " name="adresse"
+                                                            placeholder="Pole adresse" formControlName="adresse">
+                                                            <div class="error" style="color: tomato;font-size:smaller;"  *ngIf="Polesaveform.get('adresse')?.touched &&  Polesaveform.get('adresse')?.errors?.['required']">required input
+
+                                                    </div>
+                                                    </div>
+                                                    <div class="input-block">
+                                                        <label class="add-Pole-label">Pole Description</label>
+                                                        <input type="text" class="form-control" name="description"
+                                                            placeholder="Pole description" formControlName="description">
+                                                            <div class="error" style="color: tomato;font-size:smaller;"  *ngIf="Polesaveform.get('description')?.touched &&  Polesaveform.get('description')?.errors?.['required']">required input</div>
+                                                    </div>
+                                                    <!-- <button type="submit"
+                                                    class="btn btn-info-light">Confirm</button> -->
+                                                    <li>
+                                                        <button type="submit" class="btn btn-success-dark">Save</button>
+                                                    </li>
+                                                    
+                                                </form>
+                                                 
+                                            </div>
+                                           
+                                        </div>
+                                    </fieldset>
+                                   
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+    </div>
+    </body>

@@ -1,0 +1,106 @@
+<body>
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        <!-- Dashboard Student -->
+        <div class="page-content">
+            <div class="container">
+                <div class="row">
+                    <!-- Profile Details -->
+                    <div class="col-xl-12 col-md-12">
+                        <div class="settings-widget">
+                            <div class="settings-inner-blk p-0">
+                                <div class="comman-space pb-0">
+                                    <div class="filter-grp ticket-grp d-flex align-items-center justify-content-between">
+                                        <div>
+                                            <h3>Questions List</h3>
+                                        </div>
+                                        <div class="go-dashboard text-center">
+                                            <a routerLink="/addQuestion" class="btn btn-primary">Ajouter Question</a>
+                                        </div>
+                                    </div>
+                                   <!-- Filter Section -->
+                                   <div class="filter-section mb-4">
+                                    <div class="row g-3 align-items-center">
+                                        
+                                        <!-- Filter by Category -->
+                                        <div class="col-md-4">
+                                            <label for="searchCategory" class="form-label">Category</label>
+                                            <input type="text" id="searchCategory" [(ngModel)]="searchCategory" class="form-control" placeholder="Filter by Category">
+                                        </div>
+                                        <!-- Filter by Difficulty Level -->
+                                        <div class="col-md-4">
+                                            <label for="searchDifficulty" class="form-label">Difficulty</label>
+                                            <select id="searchDifficulty" [(ngModel)]="searchDifficulty" class="form-control">
+                                                <option value="">All Difficulty Levels</option>
+                                                <option value="Easy">Easy</option>
+                                                <option value="Medium">Medium</option>
+                                                <option value="Hard">Hard</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                                    <div class="settings-tickets-blk table-responsive">
+                                        <!-- Questions Table -->
+                                        <table class="table table-nowrap mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Title</th>
+                                                    <th>Category</th>
+                                                    <th>Difficulty Level</th>
+                                                    <th>Right Answer</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody *ngFor="let q of questions | filter:{ title: searchTitle, category: searchCategory, difficultylevel: searchDifficulty }">
+                                                <tr>
+                                                    <td><a href="javascript:void(0);">{{q.question_title}}</a></td>
+                                                    <td>{{q.category}}</td>
+                                                    <td><span class="badge info-low">{{q.difficultylevel}}</span></td>
+                                                    <td><span class="text-success">{{q.right_answer}}</span></td>
+                                                    <td>
+                                                        <a [routerLink]="['/updateQuestion', q.id]" class="btn btn-primary">Update</a>
+                                                        <button class="btn action-btn" (click)="deleteQuestion(q.id)">Delete</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Profile Details -->
+                </div>
+            </div>
+        </div>
+        <!-- /Dashboard Student -->
+    </div>
+    <!-- /Main Wrapper -->
+
+    <!-- Deposit Modal -->
+    <div class="modal-styles modal fade" id="depositMethod" tabindex="-1" aria-labelledby="addpaymentMethod"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addpaymentMethod">Deposit Method</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><i
+                            class="fa-regular fa-circle-xmark"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Deposit Modal -->
+
+    <!-- jQuery -->
+    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+
+    <!-- Bootstrap Core JS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="assets/js/script.js"></script>
+</body>

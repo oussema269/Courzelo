@@ -1,0 +1,82 @@
+<fieldset id="first">
+    <div class="add-course-info">
+        <div class="add-course-inner-header">
+            <h4>Basic Information</h4>
+        </div>
+        <div class="add-course-form">
+            <form #f="ngForm" >
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-block">
+                            <label class="add-course-label">Course Title</label>
+                            <input name="nomFicheModule" type="text" class="form-control" placeholder="Course Title" required ngModel #l="ngModel" [(ngModel)]="fiche.nomModule" [class.is-invalid]="l.invalid && l.touched">
+                            <div class="invalid-feedback" *ngIf="l.invalid && l.touched">
+                                the nom Module is a required field !
+                            </div>
+                        </div>
+                        <div class="input-block">
+                            <label class="add-course-label">Course Description</label> 
+                            <input name="objectif" type="text" class="form-control" placeholder="Module objectif"  required ngModel #a="ngModel" [(ngModel)]="fiche.objectif"[class.is-invalid]="a.invalid && a.touched">
+                            <div class="invalid-feedback"  *ngIf="a.invalid && a.touched">
+                                the objectif is a required field !
+                            </div>
+                        </div>
+                        <div class="input-block">
+                            <label class="add-course-label">Course Description</label> 
+                            <input name="ects" type="text" class="form-control" placeholder="Module ects"  required ngModel #a="ngModel" [(ngModel)]="fiche.ects"[class.is-invalid]="a.invalid && a.touched">
+                            <div class="invalid-feedback"  *ngIf="a.invalid && a.touched">
+                                the ects is a required field !
+                            </div>
+                        </div>
+                        <div class="input-block">
+                            <label class="label-important" >Courses Category</label>
+                            <select  class="form-control select" [(ngModel)]="fiche.niveau" name="niveau" required #c="ngModel">
+                                <option value="Courses Category" disabled selected>Select a category</option>
+                                <option value="PREMIERE">PREMIERE</option>
+                                <option value="DEUXIEME">DEUXIEME</option>
+                                <option value="TROISIEME">TROISIEME</option>
+                                <option value="QUATRIEME">QUATRIEME</option>
+                                <option value="CINQUIEME">CINQUIEME</option>
+                            </select>
+                            <div class="invalid-feedback"  *ngIf="c.invalid && c.touched">
+                                the Course Category is a required field!
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        
+                        <div class="input-block">
+                            <div class="add-course-inner-header">
+                                <h4>Chapitre Information</h4>
+                            </div>
+                            <label class="add-course-label">Nombre de chapitres</label> 
+                            <input name="nbChapitre" type="number" class="form-control" placeholder="Nombre de chapitres" [(ngModel)]="nbChapitre" (change)="onNbChapitreChange()">
+                        </div>
+                        
+                        <div *ngFor="let chapitre of chapitresArray ; let i =index">
+                            <div class="input-block">
+                                <label class="add-course-label">Nom du chapitre {{ chapitre }}</label> 
+                                <input name="objectif{{ chapitre }}" type="text" class="form-control" placeholder="Chapter Name" required ngModel [(ngModel)]="chapterName">
+                            </div>
+                            <div class="input-block">
+                                <label class="add-course-label">Duree de chapitre {{ chapitre }}</label> 
+                                <input name="objectif{{ chapitre }}" type="text" class="form-control" placeholder="Chapter Duree" required ngModel [(ngModel)]="chapterDuree">
+                            </div>
+                            <button type="button" (click)="ajouterChapitre()">Ajouter un chapitre</button>
+                        </div>
+                        
+
+                    </div>
+                </div>
+                
+                <button [disabled]="f.invalid" class="btn btn-success-dark" type="submit" (click)="ajouter()">save</button>
+            </form>
+
+        </div>
+        <div class="widget-btn">
+            <a class="btn btn-black">Back</a>
+            <a class="btn btn-info-light next_btn">Continue</a>
+        </div>
+    </div>
+</fieldset>

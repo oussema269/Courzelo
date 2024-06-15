@@ -1,0 +1,97 @@
+
+<div class="main-wrapper">
+    <div class="page-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 col-md-12">
+                    <div class="settings-widget">
+                        <div class="settings-inner-blk p-0">
+                            <div class="comman-space pb-0">
+                                <div class="filter-grp ticket-grp d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <h3>Modifier Question</h3>
+                                    </div>
+                                </div>
+                                <div class="settings-tickets-blk">
+                                    <form (ngSubmit)="onSubmit()" #questionForm="ngForm">
+                                        <div *ngIf="hasFormErrors" class="alert alert-danger">
+                                          Please fix the following errors before submitting:
+                                        </div>
+                                      
+                                        <div class="form-group">
+                                          <label for="questionTitle">Title:</label>
+                                          <input type="text" class="form-control" id="questionTitle" [(ngModel)]="question.question_title" name="questionTitle" required #questionTitle="ngModel">
+                                          <div *ngIf="questionTitle.errors?.['required'] && questionTitle.touched" class="text-danger">
+                                            Title is required.
+                                          </div>
+                                        </div>
+                                      
+                                        <div class="form-group">
+                                          <label for="category">Category:</label>
+                                          <input type="text" class="form-control" id="category" [(ngModel)]="question.category" name="category" required #category="ngModel">
+                                          <div *ngIf="category.errors?.['required'] && category.touched" class="text-danger">
+                                            Category is required.
+                                          </div>
+                                        </div>
+                                      
+                                        <div class="form-group">
+                                          <label for="option1">Option 1:</label>
+                                          <input type="text" class="form-control" id="option1" [(ngModel)]="question.option1" name="option1" required #option1="ngModel">
+                                          <div *ngIf="option1.errors?.['required'] && option1.touched" class="text-danger">
+                                            Option 1 is required.
+                                          </div>
+                                        </div>
+                                      
+                                        <div class="form-group">
+                                          <label for="option2">Option 2:</label>
+                                          <input type="text" class="form-control" id="option2" [(ngModel)]="question.option2" name="option2" required #option2="ngModel">
+                                          <div *ngIf="option2.errors?.['required'] && option2.touched" class="text-danger">
+                                            Option 2 is required.
+                                          </div>
+                                        </div>
+                                      
+                                        <div class="form-group">
+                                          <label for="option3">Option 3:</label>
+                                          <input type="text" class="form-control" id="option3" [(ngModel)]="question.option3" name="option3" required #option3="ngModel">
+                                          <div *ngIf="option3.errors?.['required'] && option3.touched" class="text-danger">
+                                            Option 3 is required.
+                                          </div>
+                                        </div>
+                                      
+                                        <div class="form-group">
+                                          <label for="option4">Option 4:</label>
+                                          <input type="text" class="form-control" id="option4" [(ngModel)]="question.option4" name="option4" required #option4="ngModel">
+                                          <div *ngIf="option4.errors?.['required'] && option4.touched" class="text-danger">
+                                            Option 4 is required.
+                                          </div>
+                                        </div>
+                                      
+                                        <div class="form-group">
+                                          <label for="difficultylevel">Difficulty Level:</label>
+                                          <input type="text" class="form-control" id="difficultylevel" [(ngModel)]="question.difficultylevel" name="difficultylevel" required #difficultylevel="ngModel">
+                                          <div *ngIf="difficultylevel.errors?.['required'] && difficultylevel.touched" class="text-danger">
+                                            Difficulty Level is required.
+                                          </div>
+                                        </div>
+                                      
+                                        <div class="form-group">
+                                          <label for="right_answer">Right Answer:</label>
+                                          <input type="text" class="form-control" id="right_answer" [(ngModel)]="question.right_answer" name="right_answer" required #rightAnswer="ngModel">
+                                          <div *ngIf="rightAnswer.errors?.['required'] && rightAnswer.touched" class="text-danger">
+                                            Right Answer is required.
+                                          </div>
+                                        </div>
+                                      
+                                        <button type="submit" class="btn btn-primary" [disabled]="!questionForm || questionForm.invalid">Update</button>
+                                      
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

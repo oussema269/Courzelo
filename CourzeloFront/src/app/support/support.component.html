@@ -1,0 +1,42 @@
+<!-- Breadcrumb -->
+<div class="page-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <h1 class="mb-0">Réclamation</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Breadcrumb -->
+
+<!-- Help Details -->
+<div class="page-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <div class="support-wrap">
+                    <h5>Ajouter une réclamation</h5>
+                    <form (ngSubmit)="saveSupport()" [formGroup]="supportsaveform">
+                        
+                       <!-- <div class="input-block">
+                            <label>ID</label>
+                            <input formControlName="reclamationId" type="text" class="form-control" placeholder="ID de reclamation">
+                        </div>-->
+                        <div class="input-block">
+                            <label>Titre de reclamation</label>
+                            <input formControlName="titre" type="text" class="form-control" placeholder="titre reclaamtion">
+                        </div>
+                        <div class="input-block">
+                            <label>Description</label>
+                            <textarea formControlName="description" class="form-control" placeholder="Description" rows="4"></textarea>
+                        </div>
+                        <button type="button" class="btn btn-submit" (click)="saveSupport()" [disabled]="supportsaveform.invalid">Submit</button>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Help Details -->

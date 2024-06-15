@@ -1,0 +1,165 @@
+<body>
+    <p-toast></p-toast>
+    <p-dialog [(visible)]="forgetPasswordDialog" 
+    [style]="{width: '550px','background-color': '#ADD8E6', 'border-radius': '10px'}"
+        header="Vous avez oublié votre mot de passe ?" [draggable]="false" [resizable]="false" [modal]="false"
+        class="welcome-login"
+       >
+        <ng-template pTemplate="content">
+            <p class="text-500">Renseignez l'e-mail utilisé lors de votre inscription afin de recevoir un lien de
+                réinitialisation de mot de passe.</p>
+            <form [formGroup]="resetPasswordForm">
+                <div class="field">
+                    <label for="emailPass">Email</label>
+                    <input type="text" formControlName="email" pInputText id="emailPass"
+                        [(ngModel)]="userResetPassword.email" required autofocus />
+                    <small class="text-red-500"
+                        *ngIf="!resetPasswordForm.controls['email'].valid && resetPasswordForm.controls['email']?.touched "
+                        style="color: #df2e21;">
+                        {{ resetPasswordForm.get("email").hasError("required")? "Ce champ est obligatoire ": ""}}
+                        {{ resetPasswordForm.get("email").hasError("email")? "Veuillez entrer une adresse e-mail valide!
+                        ": ""}}
+
+                    </small>
+                </div>
+
+
+            </form>
+
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <div class="button-container">
+                <button pButton pRipple label="Annuler" class="btn btn-danger"
+                    (click)="hideDialog()"></button>
+            </div>
+            <div class="button-container">
+                <button pButton pRipple label="Réinitialiser " class="btn btn-success"
+                    (click)="forgetPassword()"></button>
+            </div>
+        </ng-template>
+        
+    </p-dialog>
+    <!-- Main Wrapper -->
+    <div class="main-wrapper log-wrap">
+
+        <div class="row">
+
+            <!-- Login Banner -->
+            <div class="col-md-6 login-bg">
+                <div class="owl-carousel login-slide owl-theme">
+                    <div class="welcome-login">
+                        <div class="login-banner">
+                            <img src="assets/img/login-img.png" class="img-fluid" alt="Logo">
+                        </div>
+                        <div class="mentor-course text-center">
+                            <h2>Welcome to <br>administration area .</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /Login Banner -->
+
+            <div class="col-md-6 login-wrap-bg">
+
+                <!-- Login -->
+                <div class="login-wrapper">
+                    <div class="loginbox">
+                        <div class="w-100">
+                            <div class="img-logo">
+                                <img src="assets/img/logo.svg" class="img-fluid" alt="Logo">
+
+                            </div>
+
+                            <h1>Sign into Your Account</h1>
+                            <form action="https://dreamslms.dreamstechnologies.com/html/instructor-dashboard.html"
+                                [formGroup]="loginForm" (ngSubmit)="login()" *ngIf="!isLoggedIn">
+                                <div class="input-block">
+                                    <label class="form-control-label">identifier</label>
+                                    <input id="username" [(ngModel)]="user.username" type="email" class="form-control"
+                                        placeholder="Enter your identifier  " formControlName="username">
+                                    <div class="invalid-feedback">
+                                        {{
+                                        loginForm.get("username").hasError("required")
+                                        ? "Ce champ est obligatoire "
+                                        : ""
+                                        }}
+                                        {{
+                                        loginForm.get("username").hasError("minlength")
+                                        ? "username doit contenir 8 chiffres"
+                                        : ""
+                                        }}
+
+                                    </div>
+                                </div>
+
+                                <div class="input-block">
+                                    <label class="form-control-label">Password</label>
+
+                                    <div class="pass-group">
+                                        <input type="password" class="form-control pass-input"
+                                            placeholder="Enter your password" formControlName="password" id="password"
+                                            [(ngModel)]="user.password">
+                                        <div class="invalid-feedback">
+                                            {{
+                                            loginForm.get("password").hasError("required")
+                                            ? "Ce champ est obligatoire "
+                                            : ""
+                                            }}
+                                            {{
+                                            loginForm.get("password").hasError("minlength")
+                                            ? "Le mot de passe doit contenir au minimum 6 caractères"
+                                            : ""
+                                            }}
+                                        </div>
+                                        <span class="feather-eye toggle-password"></span>
+                                    </div>
+
+                                </div>
+                                <div class="forgot">
+                                    <span><a class="forgot-link" (click)="forgetPasswordDialog=true">Forgot Password
+                                            ?</a></span>
+                                </div>
+
+                                <div class="remember-me">
+                                    <label class="custom_check mr-2 mb-0 d-inline-flex remember-me"> Remember me
+                                        <input type="checkbox" name="radio">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="col-12 text-danger" *ngIf="loginForm.valid && isLoginFailed">
+                                    Bad credentials !
+                                </div>
+                                <div class="d-grid">
+                                    <button class="btn btn-primary btn-start" type="submit"
+                                        [disabled]="loginForm.invalid">Sign In</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /Login -->
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /Main Wrapper -->
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+
+    <!-- Bootstrap Core JS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Owl Carousel -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="assets/js/script.js"></script>
+
+</body>

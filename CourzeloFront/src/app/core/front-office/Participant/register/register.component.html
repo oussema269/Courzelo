@@ -1,0 +1,142 @@
+<body>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper log-wrap">
+
+        <div class="row">
+
+            <!-- Login Banner -->
+            <div class="col-md-6 login-bg">
+                <div class="owl-carousel login-slide owl-theme">
+                    <div class="welcome-login">
+                        <div class="login-banner">
+                            <img src="assets/img/login-img.png" class="img-fluid" alt="Logo">
+                        </div>
+                        <div class="mentor-course text-center">
+                            <h2>Welcome to <br>Courzelo</h2>
+                            <p> Courzelo, our innovative project, aims to redefine learning via the Online Learning
+                                platform.
+                                with Courzelo we ensure an immersive learning experience.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /Login Banner -->
+
+            <div class="col-md-6 login-wrap-bg">
+
+                <!-- Login -->
+                <div class="login-wrapper">
+                    <div class="loginbox">
+                        <div class="img-logo">
+                            <img src="assets/img/logo/Logo Courzelo Text degradé.png" class="img-fluid" alt="Logo">
+                        </div>
+
+                        <form [formGroup]="registerForm" (ngSubmit)="register()">
+                            <div class="input-block">
+                                <label class="form-control-label">Email</label>
+                                <input type="email" class="form-control" placeholder="Enter your email address"
+                                    [(ngModel)]="user.email" formControlName="email" required
+                                    [ngClass]="!registerForm.controls['email'].valid && registerForm.controls['email']?.touched?'ng-invalid ng-dirty':''" />
+                            </div>
+                            <small class="text-red-500"
+                                *ngIf="!registerForm.controls['email'].valid && registerForm.controls['email']?.touched "
+                                style="color: #f44336;">
+                                {{ registerForm.get("email").hasError("required")? "Ce champ est obligatoire ": ""}}
+                                {{ registerForm.get("email").hasError("email")? "Veuillez entrer une adresse e-mail
+                                valide! ": ""}}
+                            </small>
+
+
+                            <div class="input-block">
+                                <label class="form-control-label">Password</label>
+                                <div class="pass-group" id="passwordInput">
+                                    <input type="password" class="form-control pass-input"
+                                        placeholder="Enter your password" id="Password" [(ngModel)]="user.password"
+                                        [ngClass]="!registerForm.controls['password'].valid && registerForm.controls['password']?.touched?'ng-invalid ng-dirty':''"
+                                        formControlName="password" required />
+                                    <span class="toggle-password feather-eye"></span>
+                                    <span class="pass-checked"><i class="feather-check"></i></span>
+                                </div>
+
+                                <small class="text-red-500"
+                                    *ngIf="registerForm.controls['password'].errors && registerForm.controls['password']?.touched"
+                                    style="color: #f44336;">
+                                    {{ registerForm.get("password").hasError("required")? "Ce champ est obligatoire ":
+                                    ""}}
+                                    {{ registerForm.get("password").hasError("pattern")? "Le mot de passe doit contenir
+                                    au
+                                    minimum 6 caractères, à savoir: au moins une lettre minuscule, une lettre majuscule,
+                                    et
+                                    un chiffre": ""}}
+                                </small>
+                                <div id="passwordInfo"></div>
+                            </div>
+
+                            <div class="input-block">
+                                <label class="form-control-label">Confirm Password</label>
+                                <div class="pass-group" id="passwordInput">
+                                    <input type="password" class="form-control pass-input"
+                                        placeholder="Enter your password" id="confirmPassword"
+                                        formControlName="confirmPassword" required />
+                                    <span class="toggle-password feather-eye"></span>
+                                    <span class="pass-checked"><i class="feather-check"></i></span>
+                                </div>
+                                <small class="text-red-500"
+                                    *ngIf="registerForm.controls['confirmPassword'].errors && registerForm.controls['confirmPassword']?.touched"
+                                    style="color: #f44336;">
+                                    {{ registerForm.get("confirmPassword").hasError("required")? "Ce champ est
+                                    obligatoire
+                                    ": ""}}
+                                    {{ registerForm.get("confirmPassword").hasError("mustMatch")? "veuillez confirmer
+                                    votre
+                                    mot de passe !": ""}}
+
+                                </small>
+                                <div id="passwordInfo"></div>
+                            </div>
+
+                            <div class="form-check remember-me">
+                                <label class="form-check-label mb-0">
+                                    <input class="form-check-input" type="checkbox" name="remember"> I agree to the <a
+                                        href="term-condition.html">Terms of Service</a> and <a
+                                        href="privacy-policy.html">Privacy Policy.</a>
+                                </label>
+                            </div>
+
+                            <div class="d-grid">
+                                <button class="btn btn-primary btn-start" type="submit"
+                                    [disabled]="registerForm.invalid">Create Account</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <!-- /Login -->
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /Main Wrapper -->
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+
+    <!-- Bootstrap Core JS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Owl Carousel -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+
+    <!-- Validation-->
+    <script src="assets/js/validation.js"></script>
+
+    <!-- Custom JS -->
+    <script src="assets/js/script.js"></script>
+
+
+</body>
